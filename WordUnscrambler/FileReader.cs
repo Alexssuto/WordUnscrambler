@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace WordUnscrambler
 {
@@ -11,25 +11,22 @@ namespace WordUnscrambler
     {
         public string[] Read(string filename)
         {
-            //declare a string[] to hold the contents of the file
-            string[] readFiles;
+            // Implement this.
+            string filePath = @"C:\Users\alex\Desktop\WordUnscrambler\scrambledWords.txt";
 
-            //try/catch
-            try
+            //string[] lines = File.ReadAllLines(filePath);
+
+            List<string> lines = new List<string>();
+            lines = File.ReadAllLines(filePath).ToList();
+
+            Console.ReadLine();
+            foreach (String line in lines)
             {
-                //read from the file - ReadAllLines()
-                readFiles = File.ReadAllLines(filename);
+
+                Console.WriteLine(line);
             }
 
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-
-            return readFiles;
-
-            //Return file contents, which is a string[]
-
+            return null;
 
         }
     }

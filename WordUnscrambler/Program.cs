@@ -63,12 +63,17 @@ namespace WordUnscrambler
 
         private static void ExecuteScrambledWordsManualEntryScenario()
         {
+            var minput = Console.ReadLine() ?? string.Empty;
+
+            string[] scrambledWords = minput.Split(',');
+            DisplayMatchedUnscrambledWords(scrambledWords);
         }
+
 
         private static void DisplayMatchedUnscrambledWords(string[] scrambledWords)
         {
             //read the list of words from the system file. 
-            string[] wordList = _fileReader.Read("wordlist.txt");
+            string[] wordList = _fileReader.Read(Constants.FILE);
 
             //call a word matcher method to get a list of structs of matched words.
             List<MatchedWord> matchedWords = _wordMatcher.Match(scrambledWords, wordList);
